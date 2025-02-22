@@ -3,7 +3,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 0px 10px;
+    padding-bottom: 10px;
     gap: 40px;
+    border-bottom: 1px solid var(--secondary-gray);
 }
 
 .Header .header_title{
