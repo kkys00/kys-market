@@ -1,0 +1,39 @@
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    gap: 40px;
+}
+
+.Header .header_title{
+    font-size: 10px;
+}
+
+.Header .header_title > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Header .header_search{
+    flex-grow: 1;
+    max-width: 500px;
+
+}
+
+.Header .header_search > input{
+    border: none;
+    background-color: var(--light-green);
+    padding: 12px 20px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.Header .header_rightChild{
+    display: flex;
+    gap: 34px;
+    color: var(--text-gray);
+    font-size: 13px;
+    margin-left: 20px;
+    white-space: nowrap;
+}
