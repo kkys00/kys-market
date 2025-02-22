@@ -19,6 +19,7 @@ function App() {
       <div className="contentContainer">
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/market' element={<Market />} />
           <Route path='/new' element={<New />} />
           <Route path='/detail/:id' element={<Detail />} />
           <Route path='/edit/:id' element={<Edit />} />
