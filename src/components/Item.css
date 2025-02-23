@@ -1,0 +1,47 @@
+.Item{
+    flex: 1 1 calc(20% - 3%);
+    max-width: calc(20% - 3%);
+    margin: 30px 0px;
+}
+
+@media (max-width: 800px) {
+  .Item {
+    flex: 1 1 calc(25% - 3%);
+    max-width: calc(25% - 3%);
+    margin: 20px 0px;
+  }
+}
+
+.Item .itemImgWrapper{
+    cursor: pointer;
+}
+
+.Item .itemImgWrapper > img{
+    border-radius: 16px;
+    width: 100%
+}
+
+.Item .itemInfoWrapper{
+    margin-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 90%;
+}
+
+.Item .itemInfoWrapper > div{
+    width: fit-content;
+    cursor: pointer;
+}
+
+
+.Item .itemInfoWrapper .itemPrice{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.Item .itemInfoWrapper .itemSeller{
+    color: var(--text-gray);
+    font-size: 0.9rem;
+
+}
