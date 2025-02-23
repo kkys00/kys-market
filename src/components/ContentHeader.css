@@ -3,10 +3,3 @@
     align-items: center;
     justify-content: space-between;
 }
-
-.ContentHeader .content_header_leftChild > select{
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid var(--secondary-gray);
-    cursor: pointer;
-}
