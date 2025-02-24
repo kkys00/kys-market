@@ -11,3 +11,8 @@
     color: white;
     background-color: var(--dark-green);
 }
+
+.button_pinkred{
+    color: white;
+    background-color: var(--pink-red);
+}
