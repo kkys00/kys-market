@@ -4,6 +4,7 @@ import ContentHeader from './ContentHeader'
 import { useNavigate } from 'react-router-dom'
 import InputTypeText from './InputTypeText'
 import { useRef, useState } from 'react'
+import ImgItem from './ImgItem'
 
 const Editor = ({ type }) => {
     const nav = useNavigate()
@@ -18,10 +19,8 @@ const Editor = ({ type }) => {
     const onChangeFileInput = (e) => {
         const files = e.target.files;
         if (!files) return;
-        console.log(files)
 
         setSelectedFile(prevFiles => [...prevFiles, ...files])
-        console.log(selectedFile)
     }
 
     const onClickRemoveButton = (targetFile) => {
@@ -49,16 +48,11 @@ const Editor = ({ type }) => {
                     type="file" name="file" id="imageUpload" className="image-file-input" accept="image/*"
                     multiple required hidden />
                 <div className='imagePreview'>
-                    <div className='imgItem'>
+                    <div className='ImgItem'>
                         <button onClick={onClickPlusButton} className='plusButton'>+</button>
                     </div>
                     {selectedFile && selectedFile.map(
-                        (file, id) =>
-                            <div key={id} className='imgItem'>
-                                <button onClick={() => onClickRemoveButton(file)} className='removeButton'>x</button>
-                                <img src={URL.createObjectURL(file)} />
-                                <div className='fileName'>{file.name}</div>
-                            </div>
+                        (file, id) => <ImgItem key={id} file={file} onClickRemoveButton={onClickRemoveButton} />
                     )}
                 </div>
             </div>

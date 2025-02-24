@@ -1,0 +1,30 @@
+.ImgItem{
+    flex: 1 1 calc(25% - 3%);
+    max-width: calc(25% - 3%);
+    margin: 10px 0px;
+    position: relative;
+}
+
+.ImgItem > img{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.ImgItem .removeButton{
+    position: absolute;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-gray);
+    text-align: center;
+    top: 3px;
+    right: 3px;
+}
+
+.ImgItem .removeButton:hover{
+    color: white;
+    background-color: var(--orange);
+}
+
+.ImgItem .fileName{
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}

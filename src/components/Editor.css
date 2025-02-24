@@ -13,37 +13,6 @@
     gap: 3%;
 }
 
-.Editor .productImage .imagePreview .imgItem{
-    flex: 1 1 calc(25% - 3%);
-    max-width: calc(25% - 3%);
-    margin: 10px 0px;
-    position: relative;
-}
-
-.Editor .productImage .imagePreview .imgItem > img{
-    border-radius: 10px;
-    width: 100%;
-}
-
-.Editor .productImage .imagePreview .imgItem .removeButton{
-    position: absolute;
-    border-radius: 20px;
-    border: 1px solid var(--secondary-gray);
-    text-align: center;
-    top: 3px;
-    right: 3px;
-}
-
-.Editor .productImage .imagePreview .imgItem .removeButton:hover{
-    color: white;
-    background-color: var(--orange);
-}
-
-.Editor .productImage .imagePreview .imgItem .fileName{
-    color: var(--text-gray);
-    font-size: 0.9rem;
-}
-
 .Editor .productImage .plusButton{
     color: var(--text-gray);
     font-size: 30px;
