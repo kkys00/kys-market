@@ -1,0 +1,19 @@
+.InputTypeText{
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.InputTypeText label{
+    width: 150px;
+}
+
+.InputTypeText input{
+    border: none;
+    border-bottom: 1px solid var(--secondary-gray);
+    padding: 10px;
+    flex-grow: 1;
+}
