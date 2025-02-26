@@ -1,8 +1,12 @@
 # React + Vite
+# kys-market project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✅개발자: 김영서(@kkys00)  
+[원본 프로젝트](https://github.com/kkys00/2024-flask)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧩디자인: 김영서(@kkys00)  
+[Figma 링크](https://www.figma.com/design/rv6feoZmBGNftzMXHkCoiw/OpenSW2024-2?node-id=253-2&t=NYXInzhg1h71PI0s-1)
+
+
+![페이지](docs/figma.png)
