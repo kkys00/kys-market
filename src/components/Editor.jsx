@@ -6,6 +6,8 @@ import InputTypeText from './InputTypeText'
 import { useRef, useState } from 'react'
 import ImgItem from './ImgItem'
 
+const TRANSACTION_METHOD_OPTIONS = ["직거래", "택배", "편의점 택배", "반값 택배"];
+
 const Editor = ({ type }) => {
     const nav = useNavigate()
     const id = 1
@@ -35,9 +37,29 @@ const Editor = ({ type }) => {
                 rightChild={<Button text={`${type}하기`} onClick={() => nav(`/detail/${id}`)} type={"darkgreen"} />}
             />
             <div>
+                {/* {title,
+                    seller, <- 자동 저장
+                    price,
+                    description,
+                    transactionMethod,
+                    imgUrl} */}
                 <h3>기본 정보</h3>
-                <InputTypeText text={'상품이름'} name={'product'} />
+                <InputTypeText text={'제목'} name={'title'} />
                 <InputTypeText text={'가격'} name={'price'} type={'number'} />
+                <div className='InputTypeText'>
+                    <label>거래 방법</label>
+                    <div className='checkboxOptionWrapper'>
+                        {TRANSACTION_METHOD_OPTIONS.map((option, idx) => (
+                            <label key={idx}>
+                                <input
+                                    type='checkbox'
+                                    value={option}
+                                ></input>
+                                {option}
+                            </label>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             <div className='productImage'>
