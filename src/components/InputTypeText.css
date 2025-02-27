@@ -2,13 +2,14 @@
     color: var(--text-gray);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-.InputTypeText label{
+.InputTypeText > label{
     width: 150px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .InputTypeText input{

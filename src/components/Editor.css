@@ -35,3 +35,17 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.Editor .InputTypeText .checkboxOptionWrapper{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0px 5px;
+}
+
+.Editor .InputTypeText .checkboxOptionWrapper label{
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
