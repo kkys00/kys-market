@@ -1,14 +1,21 @@
+import { useNavigate } from 'react-router-dom'
 import './Item.css'
 
-const Item = ({ id, imgSrc, seller, product, price }) => {
+const Item = ({ id, imgUrl, title, seller, price, description, transactionMethod }) => {
+    const nav = useNavigate()
+
     return (
         <div className="Item">
-            <div className="itemImgWrapper">
-                <img src={`/uploads/${imgSrc}`} alt="상품 이미지" />
+            <div
+                onClick={() => nav(`/detail/${id}`)}
+                className="itemImgWrapper">
+                <img src={`/uploads/${imgUrl[0]}`} alt="상품 이미지" />
             </div>
-            <div className="itemInfoWrapper">
+            <div
+                onClick={() => nav(`/detail/${id}`)}
+                className="itemInfoWrapper">
                 <div className="itemPrice">{price}원</div>
-                <div className="itemProduct">{product}</div>
+                <div className="itemProduct">{title}</div>
                 <div className="itemSeller">판매자: {seller}</div>
             </div>
         </div>

@@ -102,11 +102,12 @@ function App() {
   const [items, updateItems] = useReducer(itemReducer, mockItems)
   const idRef = useRef(12345686)
 
-  const onCreate = (seller, price, description, transactionMethod, imgUrl) => {
+  const onCreate = (title, seller, price, description, transactionMethod, imgUrl) => {
     updateItems({
       type: "CREATE",
       id: idRef.current++,
       data: {
+        title,
         seller,
         price,
         description,
@@ -116,11 +117,12 @@ function App() {
     })
   }
 
-  const onUpdate = (id, seller, price, description, transactionMethod, imgUrl) => {
+  const onUpdate = (id, title, seller, price, description, transactionMethod, imgUrl) => {
     updateItems({
       type: "UPDATE",
       id,
       data: {
+        title,
         seller,
         price,
         description,
