@@ -22,13 +22,31 @@ const Editor = ({ type, onSubmit }) => {
     })
 
     const onChangeInput = (e) => {
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
 
         setInput({
             ...input,
             [name]: value
         })
+    }
+
+    const onChangeCheckbox = (e) => {
+        const { value, checked } = e.target
+
+        if (checked) {
+            setInput({
+                ...input,
+                transactionMethod: [...input.transactionMethod, value]
+            })
+        }
+        else {
+            input.transactionMethod.filter((item) => item !== value)
+            setInput({
+                ...input,
+                transactionMethod: input.transactionMethod.filter((item) => item !== value)
+            })
+        }
+
     }
 
     const [selectedFile, setSelectedFile] = useState([])
@@ -47,6 +65,10 @@ const Editor = ({ type, onSubmit }) => {
 
     const onClickRemoveButton = (targetFile) => {
         setSelectedFile(prevFiles => prevFiles.filter(file => file !== targetFile));
+    }
+
+    const onClickSubmitButton = () => {
+        onSubmit(input, selectedFile)
     }
 
     return (
@@ -74,6 +96,7 @@ const Editor = ({ type, onSubmit }) => {
                         {TRANSACTION_METHOD_OPTIONS.map((option, idx) => (
                             <label key={idx}>
                                 <input
+                                    onChange={onChangeCheckbox}
                                     type='checkbox'
                                     value={option}
                                     name="transactionMethod"
@@ -111,7 +134,7 @@ const Editor = ({ type, onSubmit }) => {
                     placeholder='상품에 대한 설명을 입력하세요.' />
             </div>
 
-            <Button text={`${type}하기`} onClick={() => nav(`/detail/${id}`)} type={"darkgreen"} />
+            <Button text={`${type}하기`} onClick={onClickSubmitButton} type={"darkgreen"} />
         </div>
     )
 }
