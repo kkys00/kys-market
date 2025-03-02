@@ -11,7 +11,7 @@ const Detail = () => {
     const item = useContext(ItemStateContext)[id]
 
     return (
-        <div> {id} Detail
+        <div>
             <ContentHeader
                 title={"중고거래"}
                 leftChild={

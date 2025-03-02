@@ -3,6 +3,7 @@
   grid-template-columns: 2fr 3fr;
   gap: 4%;
   align-items: start;
+  margin: 50px 0px;
 }
 
 .ItemDetail .imageWrapper {
@@ -79,5 +80,15 @@
     flex-direction: row;
     width: 30%;
     gap: 8px;
+  }
+
+  .ItemDetail .infoWrapper .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ItemDetail .infoWrapper .buttons button {
+    width: auto;
   }
 }

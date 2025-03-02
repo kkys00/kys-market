@@ -33,7 +33,7 @@ const ItemDetail = ({ item }) => {
                 </div>
                 <div className='subInfo'>
                     <div className='dataName'>판매자</div> <div className='bar'></div> <div className='data'>{seller}</div>
-                    <div className='dataName'>거래방법</div> <div className='bar'></div> <div className='data'>{transactionMethod.map((item) => <span key={item}>{item}</span>)}</div>
+                    <div className='dataName'>거래방법</div> <div className='bar'></div> <div className='data'>{transactionMethod.join(", ")}</div>
                     <div className='dataName'>상품설명</div> <div className='bar'></div> <div className='data'>{description}</div>
                 </div>
                 <div className='buttons'>
