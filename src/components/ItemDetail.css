@@ -1,54 +1,83 @@
-.ItemDetail{
+.ItemDetail {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4%;
+  align-items: start;
+}
+
+.ItemDetail .imageWrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 3%;
+}
+
+.ItemDetail .imageWrapper .additionalImage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ItemDetail .imageWrapper img {
+  width: 100%;
+}
+
+.ItemDetail .bar {
+  width: 3px;
+  height: 20px;
+  background-color: var(--mint-green);
+  border-radius: 5px;
+}
+
+.ItemDetail .infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ItemDetail .infoWrapper .topInfo {
+  display: flex;
+  gap: 20px;
+}
+
+.ItemDetail .infoWrapper .topInfo > .bar {
+  margin-top: 4px;
+  width: 5px;
+  height: 25px;
+}
+
+.ItemDetail .infoWrapper .topInfo h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.ItemDetail .infoWrapper .subInfo {
+  display: grid;
+  grid-template-columns: 80px 20px auto;
+  row-gap: 10px;
+  color: var(--text-gray);
+}
+
+.ItemDetail .infoWrapper .buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ItemDetail .infoWrapper .buttons button {
+  width: 150px;
+}
+
+@media (max-width: 800px) {
+  .ItemDetail .imageWrapper {
     display: flex;
-    justify-content: space-between;
-}
+    flex-direction: column-reverse;
+    gap: 4px;
+  }
 
-.ItemDetail .imageWrapper img{
-    width: 100px;
-}
-
-.ItemDetail .bar{
-    width: 3px;
-    height: 20px;
-    background-color: var(--mint-green);
-    border-radius: 5px;
-}
-
-.ItemDetail .infoWrapper{
+  .ItemDetail .imageWrapper .additionalImage {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.ItemDetail .infoWrapper .topInfo{
-    display: flex;
-    gap: 20px;
-}
-
-.ItemDetail .infoWrapper .topInfo > .bar{
-    margin-top: 4px;
-    width: 5px;
-    height: 25px;
-}
-
-.ItemDetail .infoWrapper .topInfo h4{
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.ItemDetail .infoWrapper .subInfo{
-    display: grid;
-    grid-template-columns: 80px 20px auto;
-    row-gap: 10px;
-    color: var(--text-gray);
-}
-
-.ItemDetail .infoWrapper .buttons{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.ItemDetail .infoWrapper .buttons button{
-    width: 150px;
+    flex-direction: row;
+    width: 30%;
+    gap: 8px;
+  }
 }
