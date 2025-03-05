@@ -52,6 +52,10 @@
   font-weight: 500;
 }
 
+.ItemDetail .infoWrapper .topInfo button {
+  height: fit-content;
+}
+
 .ItemDetail .infoWrapper .subInfo {
   display: grid;
   grid-template-columns: 80px 20px auto;

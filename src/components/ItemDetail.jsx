@@ -1,8 +1,11 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from './Button'
 import './ItemDetail.css'
 import { ShoppingCart, Bookmark } from 'lucide-react';
 
 const ItemDetail = ({ item }) => {
+    const nav = useNavigate()
+    const { id } = useParams()
     const {
         title,
         seller,
@@ -30,6 +33,7 @@ const ItemDetail = ({ item }) => {
                         <h4>{title}</h4>
                         <h4>{price}</h4>
                     </div>
+                    <Button text={"수정하기"} type={"darkgreen"} onClick={() => nav(`/edit/${id}`)} />
                 </div>
                 <div className='subInfo'>
                     <div className='dataName'>판매자</div> <div className='bar'></div> <div className='data'>{seller}</div>
