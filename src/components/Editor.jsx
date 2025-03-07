@@ -96,10 +96,18 @@ const Editor = ({ type, onSubmit, initData }) => {
         })
     }
 
+    const onRevoke = () => {
+        if (window.confirm("변경 사항을 되돌릴까요?")) {
+            setInput({
+                ...initData
+            })
+        }
+    }
+
     const createRightChildBtn = (type) => {
         switch (type) {
             case "등록": return <Button text={`리셋하기`} onClick={onReset} type={"pinkred"} />
-            case "수정": return <Button text={`삭제하기`} onClick={onReset} type={"pinkred"} />
+            case "수정": return <Button text={`되돌리기`} onClick={onRevoke} type={"pinkred"} />
         }
     }
 
