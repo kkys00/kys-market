@@ -1,11 +1,11 @@
 import './ImgItem.css'
 
-const ImgItem = ({ file, onClickRemoveButton }) => {
+const ImgItem = ({ fileUrl, onClickRemoveButton }) => {
     return (
         <div className="ImgItem">
-            <button onClick={() => onClickRemoveButton(file)} className="removeButton">x</button>
-            <img src={URL.createObjectURL(file)} alt={file.name} />
-            <div className="fileName">{file.name}</div>
+            <button onClick={() => onClickRemoveButton(fileUrl)} className="removeButton">x</button>
+            <img src={`/uploads/${fileUrl}`} alt={fileUrl} />
+            <div className="fileName">{fileUrl}</div>
         </div>
     );
 };

@@ -3,14 +3,13 @@ import Button from './Button'
 import ContentHeader from './ContentHeader'
 import { useNavigate } from 'react-router-dom'
 import InputTypeText from './InputTypeText'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ImgItem from './ImgItem'
 
 const TRANSACTION_METHOD_OPTIONS = ["직거래", "택배", "편의점 택배", "반값 택배"];
 
-const Editor = ({ type, onSubmit }) => {
+const Editor = ({ type, onSubmit, initData }) => {
     const nav = useNavigate()
-    const id = 1
     const [input, setInput] = useState({
         title: "",
         seller: "test",
@@ -20,6 +19,12 @@ const Editor = ({ type, onSubmit }) => {
         imgUrl: [],
         createdAt: new Date().getTime()
     })
+
+    useEffect(() => {
+        if (initData) {
+            setInput({ ...initData })
+        }
+    }, [initData])
 
     const onChangeInput = (e) => {
         const { name, value } = e.target
@@ -49,9 +54,8 @@ const Editor = ({ type, onSubmit }) => {
 
     }
 
-    const [selectedFile, setSelectedFile] = useState([])
-
     const fileInputRef = useRef(null)
+
     const onClickPlusButton = () => {
         fileInputRef.current.click()
     }
@@ -59,24 +63,52 @@ const Editor = ({ type, onSubmit }) => {
     const onChangeFileInput = (e) => {
         const files = e.target.files;
         if (!files) return;
+        console.log(files)
+        // const urls = [...files].map(file => URL.createObjectURL(file))
+        const urls = [...files].map(file => file.name)
 
-        setSelectedFile(prevFiles => [...prevFiles, ...files])
+        setInput({
+            ...input,
+            imgUrl: [...input.imgUrl, ...urls]
+        })
     }
 
     const onClickRemoveButton = (targetFile) => {
-        setSelectedFile(prevFiles => prevFiles.filter(file => file !== targetFile));
+        setInput({
+            ...input,
+            imgUrl: input.imgUrl.filter((item) => item !== targetFile)
+        })
     }
 
     const onClickSubmitButton = () => {
-        onSubmit(input, selectedFile)
+        onSubmit(input)
+    }
+
+    const onReset = () => {
+        setInput({
+            title: "",
+            seller: "test",
+            price: "",
+            description: "",
+            transactionMethod: [],
+            imgUrl: [],
+            createdAt: input.createdAt
+        })
+    }
+
+    const createRightChildBtn = (type) => {
+        switch (type) {
+            case "등록": return <Button text={`리셋하기`} onClick={onReset} type={"pinkred"} />
+            case "수정": return <Button text={`삭제하기`} onClick={onReset} type={"pinkred"} />
+        }
     }
 
     return (
         <div className='Editor'>
             <ContentHeader
                 title={`상품 ${type}하기`}
-                leftChild={<Button text={"뒤로 가기"} onClick={() => nav(-1)} type={"pinkred"} />}
-                rightChild={<Button text={`${type}하기`} onClick={() => nav(`/detail/${id}`)} type={"darkgreen"} />}
+                leftChild={<Button text={"뒤로 가기"} onClick={() => nav(-1)} type={"darkgreen"} />}
+                rightChild={createRightChildBtn(type)}
             />
             <div>
                 {/* {title,
@@ -100,6 +132,7 @@ const Editor = ({ type, onSubmit }) => {
                                     type='checkbox'
                                     value={option}
                                     name="transactionMethod"
+                                    checked={input.transactionMethod.includes(option)}
                                 ></input>
                                 {option}
                             </label>
@@ -119,8 +152,8 @@ const Editor = ({ type, onSubmit }) => {
                     <div className='ImgItem'>
                         <button onClick={onClickPlusButton} className='plusButton'>+</button>
                     </div>
-                    {selectedFile && selectedFile.map(
-                        (file, id) => <ImgItem key={id} file={file} onClickRemoveButton={onClickRemoveButton} />
+                    {input.imgUrl && input.imgUrl.map(
+                        (file, id) => <ImgItem key={id} fileUrl={file} onClickRemoveButton={onClickRemoveButton} />
                     )}
                 </div>
             </div>
