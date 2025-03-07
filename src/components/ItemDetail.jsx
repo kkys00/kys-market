@@ -2,9 +2,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Button from './Button'
 import './ItemDetail.css'
 import { ShoppingCart, Bookmark } from 'lucide-react';
+import { useContext } from 'react';
+import { ItemDispatchContext } from '../App';
 
 const ItemDetail = ({ item }) => {
     const nav = useNavigate()
+    const { onDelete } = useContext(ItemDispatchContext)
     const { id } = useParams()
     const {
         title,
@@ -15,6 +18,12 @@ const ItemDetail = ({ item }) => {
         imgUrl,
     } = item
     const [mainImg, ...additionalImg] = imgUrl
+
+    const onClickDelete = () => {
+        if (window.confirm("게시글을 정말 삭제할까요? 다시 복구되지 않습니다.")) {
+            onDelete(id)
+        }
+    }
 
     return (
         <div className='ItemDetail'>
@@ -34,6 +43,7 @@ const ItemDetail = ({ item }) => {
                         <h4>{price}</h4>
                     </div>
                     <Button text={"수정하기"} type={"darkgreen"} onClick={() => nav(`/edit/${id}`)} />
+                    <Button text={"삭제하기"} type={"pinkred"} onClick={onClickDelete} />
                 </div>
                 <div className='subInfo'>
                     <div className='dataName'>판매자</div> <div className='bar'></div> <div className='data'>{seller}</div>

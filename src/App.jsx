@@ -151,6 +151,8 @@ function App() {
       type: "DELETE",
       id
     })
+
+    nav(`/market`, { replace: true })
   }
 
   return (
