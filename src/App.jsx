@@ -8,7 +8,7 @@ import Notfound from './pages/Notfound'
 import Market from './pages/Market'
 import Header from './components/Header'
 import Nav from './components/Nav'
-import { createContext, useReducer, useRef } from 'react'
+import { createContext, useReducer } from 'react'
 
 const mockItems = {
   12345678: {
@@ -109,12 +109,11 @@ export const ItemDispatchContext = createContext()
 function App() {
   const nav = useNavigate()
   const [items, updateItems] = useReducer(itemReducer, mockItems)
-  const idRef = useRef(12345686)
 
-  const onCreate = (title, seller, price, description, transactionMethod, imgUrl, createdAt) => {
+  const onCreate = (id, title, seller, price, description, transactionMethod, imgUrl, createdAt) => {
     updateItems({
       type: "CREATE",
-      id: idRef.current,
+      id,
       data: {
         title,
         seller,
@@ -126,8 +125,7 @@ function App() {
       }
     })
 
-    nav(`/detail/${idRef.current++}`, { replace: true })
-
+    nav(`/detail/${id}`, { replace: true })
   }
 
   const onUpdate = (id, title, seller, price, description, transactionMethod, imgUrl, createdAt) => {
@@ -144,6 +142,8 @@ function App() {
         createdAt
       }
     })
+
+    nav(`/detail/${id}`, { replace: true })
   }
 
   const onDelete = (id) => {
